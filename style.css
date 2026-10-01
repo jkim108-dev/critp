@@ -1,0 +1,837 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #e8e8e3;
+  color: #111;
+}
+
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.topbar {
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 40px;
+
+  border-bottom: 1px solid #111;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.date {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+
+
+/* =========================================
+   APP
+========================================= */
+
+.app {
+  display: grid;
+
+  grid-template-columns:
+    minmax(360px, 0.8fr)
+    minmax(600px, 1.4fr);
+
+  min-height: calc(100vh - 70px);
+}
+
+
+
+/* =========================================
+   LEFT PANEL
+========================================= */
+
+.control-panel {
+  padding: 60px 50px;
+
+  border-right: 1px solid #111;
+
+  overflow-y: auto;
+}
+
+.eyebrow {
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 20px;
+}
+
+.intro h1 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(44px, 5vw, 74px);
+
+  line-height: 0.95;
+
+  font-weight: 400;
+
+  letter-spacing: -2px;
+
+  margin-bottom: 30px;
+}
+
+.description {
+  max-width: 370px;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  margin-bottom: 50px;
+}
+
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.field {
+  margin-bottom: 30px;
+}
+
+.field > label:first-child {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+
+  border: 1px solid #111;
+
+  background: transparent;
+
+  padding: 15px;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+textarea {
+  height: 170px;
+
+  resize: vertical;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  line-height: 1.5;
+}
+
+
+
+/* =========================================
+   IMAGE UPLOAD
+========================================= */
+
+.upload-box {
+  border: 1px dashed #111;
+
+  height: 80px;
+
+  display: flex !important;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.upload-box:hover {
+  background: #111;
+  color: #fff;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.file-name {
+  margin-top: 8px;
+
+  font-size: 11px;
+
+  opacity: 0.5;
+
+  word-break: break-all;
+}
+
+
+
+/* =========================================
+   RECORDING
+========================================= */
+
+.record-box {
+  border: 1px solid #111;
+
+  padding: 16px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.record-btn {
+  border: none;
+
+  background: #111;
+
+  color: #fff;
+
+  padding: 15px 20px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: 0.2s ease;
+}
+
+.record-btn:hover {
+  opacity: 0.75;
+}
+
+.record-btn.recording {
+  background: #a90000;
+}
+
+.record-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 10px;
+
+  flex: 1;
+
+  justify-content: flex-end;
+}
+
+.record-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #aaa;
+}
+
+.record-dot.active {
+  background: #c00000;
+
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.audio-playback {
+  display: none;
+
+  width: 100%;
+
+  margin-top: 12px;
+}
+
+
+
+/* =========================================
+   GENERATE BUTTON
+========================================= */
+
+.generate-btn {
+  width: 100%;
+
+  height: 68px;
+
+  border: none;
+
+  background: #111;
+
+  color: #fff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.generate-btn:hover {
+  opacity: 0.75;
+}
+
+
+
+/* =========================================
+   PREVIEW AREA
+========================================= */
+
+.preview-area {
+  padding: 30px 50px 70px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  overflow-y: auto;
+}
+
+.preview-header {
+  width: min(100%, 760px);
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+.print-btn {
+  background: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-decoration: underline;
+}
+
+
+
+/* =========================================
+   NEWSPAPER
+========================================= */
+
+.newspaper {
+  width: 100%;
+
+  max-width: 760px;
+
+  min-height: 1000px;
+
+  background: #f7f5ed;
+
+  padding: 30px;
+
+  border: 1px solid #bbb;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* =========================================
+   NEWSPAPER HEADER
+========================================= */
+
+.newspaper-top {
+  text-align: center;
+
+  border-bottom: 3px solid #111;
+
+  padding-bottom: 10px;
+}
+
+.newspaper-top > p {
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.newspaper-top h2 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 64px;
+
+  font-weight: 700;
+
+  letter-spacing: -4px;
+
+  line-height: 1.05;
+
+  margin: 5px 0;
+}
+
+.newspaper-meta {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  border-top: 1px solid #111;
+
+  padding-top: 7px;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+}
+
+
+
+/* =========================================
+   HEADLINE
+========================================= */
+
+.headline {
+  padding: 25px 0;
+
+  border-bottom: 1px solid #111;
+}
+
+.section-label {
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 8px;
+}
+
+.headline h3 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 44px;
+
+  line-height: 1;
+
+  margin-bottom: 10px;
+
+  overflow-wrap: anywhere;
+}
+
+.headline > p:last-child {
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  font-style: italic;
+}
+
+
+
+/* =========================================
+   MAIN IMAGE
+========================================= */
+
+.main-image {
+  width: 100%;
+
+  height: 380px;
+
+  margin: 22px 0;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: none;
+}
+
+.image-placeholder {
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+
+/* =========================================
+   ARTICLE
+========================================= */
+
+.article-grid {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 25px;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid #111;
+}
+
+.article-side {
+  border-left: 1px solid #111;
+
+  padding-left: 20px;
+}
+
+.summary {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+.article-side ul {
+  padding-left: 17px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.article-side li {
+  margin-bottom: 10px;
+}
+
+
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.quote-box {
+  padding: 25px 0;
+
+  border-bottom: 1px solid #111;
+}
+
+blockquote {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 30px;
+
+  line-height: 1.15;
+
+  font-style: italic;
+}
+
+
+
+/* =========================================
+   NEXT STEPS
+========================================= */
+
+.next-step {
+  padding: 25px 0;
+}
+
+.next-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.next-grid div {
+  border-top: 3px solid #111;
+
+  padding-top: 10px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.next-grid span {
+  display: block;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  margin-bottom: 5px;
+}
+
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  margin-top: 30px;
+
+  border-top: 3px solid #111;
+
+  padding-top: 8px;
+
+  text-align: center;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+
+/* =========================================
+   PRINT
+========================================= */
+
+@media print {
+
+  @page {
+    margin: 0;
+  }
+
+  body {
+    background: white;
+  }
+
+  .topbar,
+  .control-panel,
+  .preview-header {
+    display: none !important;
+  }
+
+  .app {
+    display: block;
+  }
+
+  .preview-area {
+    padding: 0;
+  }
+
+  .newspaper {
+    max-width: none;
+
+    width: 100%;
+
+    min-height: 0;
+
+    box-shadow: none;
+
+    border: none;
+
+    margin: 0;
+  }
+
+}
+
+
+
+/* =========================================
+   TABLET / MOBILE
+========================================= */
+
+@media (max-width: 950px) {
+
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .control-panel {
+    border-right: none;
+
+    border-bottom: 1px solid #111;
+  }
+
+  .preview-area {
+    padding: 30px 20px 60px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .topbar {
+    padding: 0 20px;
+  }
+
+  .control-panel {
+    padding: 40px 20px;
+  }
+
+  .intro h1 {
+    font-size: 46px;
+  }
+
+  .record-box {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .record-status {
+    justify-content: space-between;
+  }
+
+  .newspaper {
+    padding: 20px;
+  }
+
+  .newspaper-top h2 {
+    font-size: 43px;
+  }
+
+  .headline h3 {
+    font-size: 34px;
+  }
+
+  .main-image {
+    height: 280px;
+  }
+
+  .article-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-side {
+    border-left: none;
+
+    border-top: 1px solid #111;
+
+    padding-left: 0;
+
+    padding-top: 20px;
+  }
+
+  .next-grid {
+    grid-template-columns: 1fr;
+  }
+
+  blockquote {
+    font-size: 24px;
+  }
+
+}

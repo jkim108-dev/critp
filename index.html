@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CRIT PRESS</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header class="topbar">
+
+    <div class="logo">
+      CRIT PRESS
+    </div>
+
+    <div class="date" id="currentDate">
+      SEPTEMBER 30, 2026
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================================
+       MAIN APP
+  ========================================== -->
+
+  <main class="app">
+
+
+    <!-- =========================================
+         LEFT CONTROL PANEL
+    ========================================== -->
+
+    <section class="control-panel">
+
+
+      <!-- INTRO -->
+
+      <div class="intro">
+
+        <p class="eyebrow">
+          CRITIQUE DOCUMENTATION SYSTEM
+        </p>
+
+        <h1>
+          Turn critique<br>
+          into something<br>
+          you can keep.
+        </h1>
+
+        <p class="description">
+          Record your critique, upload your work,
+          and turn the conversation into a
+          newspaper-style physical archive.
+        </p>
+
+      </div>
+
+
+
+      <!-- PROJECT TITLE -->
+
+      <div class="field">
+
+        <label for="projectTitle">
+          PROJECT TITLE
+        </label>
+
+        <input
+          type="text"
+          id="projectTitle"
+          placeholder="Enter project title"
+        >
+
+      </div>
+
+
+
+      <!-- WORK IMAGE -->
+
+      <div class="field">
+
+        <label>
+          WORK IMAGE
+        </label>
+
+        <label
+          for="imageInput"
+          class="upload-box"
+          id="imageUploadBox"
+        >
+
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+          >
+
+          <span id="imageUploadText">
+            + Upload Image
+          </span>
+
+        </label>
+
+        <p
+          class="file-name"
+          id="imageFileName"
+        >
+          No image selected
+        </p>
+
+      </div>
+
+
+
+      <!-- RECORDING -->
+
+      <div class="field">
+
+        <label>
+          CRITIQUE RECORDING
+        </label>
+
+        <div class="record-box">
+
+          <button
+            type="button"
+            id="recordBtn"
+            class="record-btn"
+          >
+            START RECORDING
+          </button>
+
+
+          <div class="record-status">
+
+            <span
+              class="record-dot"
+              id="recordDot"
+            ></span>
+
+            <span id="recordStatus">
+              Ready
+            </span>
+
+            <span id="recordTimer">
+              00:00
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <audio
+          id="audioPlayback"
+          controls
+          class="audio-playback"
+        ></audio>
+
+
+        <p
+          id="audioName"
+          class="file-name"
+        >
+          No recording yet
+        </p>
+
+      </div>
+
+
+
+      <!-- TRANSCRIPT -->
+
+      <div class="field">
+
+        <label for="transcript">
+          CRITIQUE TRANSCRIPT
+        </label>
+
+        <textarea
+          id="transcript"
+          placeholder="For now, paste the critique transcript here. Later this will be generated automatically from the recording."
+        ></textarea>
+
+      </div>
+
+
+
+      <!-- GENERATE BUTTON -->
+
+      <button
+        class="generate-btn"
+        id="generateBtn"
+      >
+        GENERATE EDITION
+      </button>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         RIGHT PREVIEW
+    ========================================== -->
+
+    <section class="preview-area">
+
+
+      <!-- PREVIEW TOOLBAR -->
+
+      <div class="preview-header">
+
+        <span>
+          LIVE PREVIEW
+        </span>
+
+        <button
+          id="printBtn"
+          class="print-btn"
+        >
+          PRINT
+        </button>
+
+      </div>
+
+
+
+      <!-- =========================================
+           NEWSPAPER
+      ========================================== -->
+
+      <article
+        class="newspaper"
+        id="newspaper"
+      >
+
+
+        <!-- PAPER HEADER -->
+
+        <div class="newspaper-top">
+
+          <p>
+            DESIGN CRITIQUE ARCHIVE
+          </p>
+
+          <h2>
+            THE CRITIQUE
+          </h2>
+
+
+          <div class="newspaper-meta">
+
+            <span>
+              SCHOOL EDITION
+            </span>
+
+            <span id="paperDate">
+              SEPTEMBER 30, 2026
+            </span>
+
+            <span>
+              ISSUE 001
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- HEADLINE -->
+
+        <div class="headline">
+
+          <p class="section-label">
+            TODAY'S REVIEW
+          </p>
+
+          <h3 id="paperTitle">
+            YOUR PROJECT TITLE
+          </h3>
+
+          <p id="paperSubtitle">
+            A critique record generated from today's conversation.
+          </p>
+
+        </div>
+
+
+
+        <!-- MAIN IMAGE -->
+
+        <div class="main-image">
+
+          <div
+            class="image-placeholder"
+            id="imagePlaceholder"
+          >
+            WORK IMAGE
+          </div>
+
+          <img
+            id="paperImage"
+            alt="Uploaded project"
+          >
+
+        </div>
+
+
+
+        <!-- ARTICLE GRID -->
+
+        <div class="article-grid">
+
+
+          <!-- SUMMARY -->
+
+          <div class="article-main">
+
+            <p class="section-label">
+              CRITIQUE SUMMARY
+            </p>
+
+            <p
+              class="summary"
+              id="summaryText"
+            >
+              Your critique summary will appear here.
+              Upload your project image, record the critique,
+              and add a transcript to generate the edition.
+            </p>
+
+          </div>
+
+
+
+          <!-- KEY FEEDBACK -->
+
+          <div class="article-side">
+
+            <p class="section-label">
+              KEY FEEDBACK
+            </p>
+
+            <ul id="feedbackList">
+
+              <li>
+                Feedback point appears here.
+              </li>
+
+              <li>
+                Feedback point appears here.
+              </li>
+
+              <li>
+                Feedback point appears here.
+              </li>
+
+            </ul>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- QUOTE -->
+
+        <div class="quote-box">
+
+          <p class="section-label">
+            QUOTE OF THE CRIT
+          </p>
+
+          <blockquote id="quoteText">
+            “A memorable critique comment will appear here.”
+          </blockquote>
+
+        </div>
+
+
+
+        <!-- NEXT ITERATION -->
+
+        <div class="next-step">
+
+          <p class="section-label">
+            NEXT ITERATION
+          </p>
+
+          <div
+            class="next-grid"
+            id="nextSteps"
+          >
+
+            <div>
+              <span>01</span>
+              Refine the core interaction.
+            </div>
+
+            <div>
+              <span>02</span>
+              Test the form with users.
+            </div>
+
+            <div>
+              <span>03</span>
+              Develop the next prototype.
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+          GENERATED FROM CRITIQUE CONVERSATION
+        </div>
+
+
+      </article>
+
+
+    </section>
+
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
